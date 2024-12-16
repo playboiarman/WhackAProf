@@ -1,0 +1,260 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{titlesec}
+
+\geometry{margin=1in}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{1em}{}
+
+\begin{document}
+
+\title{Software Requirements Specification for Whack A Prof Game}
+\author{}
+\date{}
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+\subsection{Purpose}
+The purpose of this SRS document is to provide a description of the "Whack a Prof" game. This document is intended to be a guide for designers, developers, and testers (Quality Assurance), ensuring that the game is developed according to the specified requirements and that there is a clear understanding of its objectives, mechanics, and expected behavior.
+
+The intended audience for this document includes:
+\begin{itemize}
+    \item Backbone: Responsible for implementing the game’s features and mechanics based on the requirements.
+    \item Graphics Team: Responsible for developing the game’s visuals, including characters, effects (e.g., blood splatter effects, hit effects), items (e.g., mallet), animations (e.g., mallet swing), sounds (e.g, mallet hit sound effects).
+    \item QA Team: Responsible for verifying that the game functions as expected and meets the outlined specifications.
+\end{itemize}
+Each group will use this SRS to understand their roles and ensure that the game meets the overall project goals.
+
+\subsection{Scope}
+The software product to be produced followed by the SRS outline should be named "Whack A Prof". This software product would be a game that will follow a similar fashion to the original "Whack A Mole" game, where users would be timed and scored to hit characters in a whack a mole style fashion.
+
+The application of the software being specified — "Whack A Prof" is an interactive time-based game designed to simulate a "Whack A Mole" experience but with a unique feel. In this game, users will attempt to hit characters (i.e., Professors or Board of Trustee Members) that pop up randomly on the screen within a limited time frame, i.e., in a "Whack A Mole" styled fashion. The player is rewarded with points for successful hits, and performance will be tracked through a score system. The player will be able to enter their name before playing the game, the player will be able to adjust settings in the game, the player will be able to pause/quit the game, and the player will be able to view their scores.
+
+\textbf{Benefits of Application}
+\begin{itemize}
+    \item User Engagement: The game will provide players with an engaging experience with a timed nature and with features such as score tracking during gameplay.
+    \item Entertainment: The game will provide players with entertainment that challenges the players’ reaction time.
+\end{itemize}
+
+\textbf{Objectives of Application}
+\begin{itemize}
+    \item Timed Gameplay: Players have a limited time.
+    \item Accurate Scoring: Players will be scored based on how many characters they have hit.
+\end{itemize}
+
+The overall goal of "Whack A Prof" is to replicate and simulate the original "Whack A Mole" game while giving players an enjoyable experience.
+
+\subsection{Definitions, Acronyms, and Abbreviations}
+\begin{itemize}
+    \item SRS: Software Requirements Specification.
+    \item Whack A Mole: The game name, where players score points by hitting characters (usually moles) that randomly appear on the screen.
+    \item UI: User interface, the elements through which players interact with the game.
+    \item QA: Quality Assurance, the team responsible for testing the game to ensure its functionality and performance meet the specifications.
+    \item Hit Detection: The system that detects when a player successfully hits a target and responds accordingly.
+    \item Score System: A system that tracks the player's performance in the game, usually based on the number of targets hit or the accuracy of the hits.
+    \item Target: Objects in the game, moles, that players need to hit to score points.
+    \item FPS: Frames Per Second, referring to the refresh rate of the game's visuals, which ensures smooth gameplay.
+    \item WIP: Work In Progress - optional/required requirements will be added soon.
+\end{itemize}
+
+\subsection{References}
+\begin{itemize}
+    \item https://en.wikipedia.org/wiki/Whac-A-Mole
+    \item Whack-A-Mole gameplay - Offline Version
+\end{itemize}
+
+\subsection{Overview}
+This document is organized to guide the development, design, and testing of the game Whack A Prof ensuring that all teams involved clearly understand the objectives, scope, and requirements. It starts with the Introduction, which defines the purpose and intended audience of the document, including the Backbone, Graphics, and QA teams, each with specific roles to implement, design, and verify the game. The Scope outlines the game’s core mechanics, modeled after the classic Whack A Mole game. It also lists the Objectives of the game, which include providing user engagement through timed gameplay and ensuring accurate scoring. The Definitions and Acronyms section clarifies key terms such as SRS, UI, and QA, which are essential for understanding the technical elements discussed throughout the document. The references section provides any material used or referenced in the creation of the Whack A Prof game. This document is structured to ensure that each team understands their role in fulfilling the game’s design and functional goals, ensuring the game is developed according to the outlined requirements.
+
+\newpage
+\section{Product Perspectives}
+\subsection{System interfaces}
+The game will consist of 3 things the player can access: Start/Title, Options, Game.
+
+\subsection{User interfaces}
+Start/Title Screen: The first thing the player sees when they load the app. It will have the buttons to start the game, exit to desktop, or options.
+
+Options/Settings: Allows the user to configure the game to have the most comfortable experience. Options include brightness, quality, etc.
+
+Game: The hammer will replace the mouse pointer, there will be 9 holes on screen in a 3x3 layout. Pressing Esc will bring up a menu for options or to return to the title screen.
+
+\subsection{Hardware interfaces}
+The game can be played in either fullscreen or windowed mode. It can be supported by most operating systems (i.e. Windows, Mac, Linux), or most browsers (i.e. Chrome, Firefox).
+
+\subsection{Software interfaces}
+The game’s name is “Whack A Prof”. While the game is in development, there should be beta or alpha versions to make sure the game is at least usable before moving to the next step of development. An example would be “Beta 0.01”. When the game is finished, it should be released as “Version 1.0”.
+
+\subsection{Communications interfaces}
+The game itself should not require WiFi to play unless the game is on a website. If achievements and the ability to share achievements on social media (i.e. Steam) is developed, it will have to require WiFi.
+
+\subsection{Memory}
+The base game should aim to need 1-2GB worth of storage space due to the simplicity of the game. However, this is not a strict requirement and exceeding that amount is acceptable.
+
+\subsection{Operations}
+When the player starts the game, they are first met with the Title screen. If they need to change the settings to improve their experience, they can go to the Options/Settings button to change it. To actually start the game, the player must press the Start button.
+
+To play the game, the player must press the hit button (default: Left-Click) when the hammer/mouse pointer is over a Prof to score points.
+
+To leave the game, the player must press Esc and return to the Title screen.
+
+\subsection{Site adaptation requirements}
+The game will likely not need any specific site requirements other than the game being embedded.
+
+\newpage
+\section{Product Functions}
+\subsection{User Interface Functions}
+\begin{itemize}
+    \item \textbf{Main Menu:} In the main menu, I will display options such as "Start Game," "Settings," "High Scores," and "Exit." This interface will feature clear visual cues, allowing users to effortlessly select their desired action.
+    \item \textbf{Game Interface:} The game interface will showcase the playing field where characters, such as professors or board members, appear for players to hit. It will include a timer countdown to add urgency and a score display to keep players informed of their progress.
+    \item \textbf{Settings Menu:} Players will have the option to customize their experience through the settings menu. Here, they can adjust sound levels, graphics settings, and gameplay preferences to suit their needs.
+\end{itemize}
+
+\subsection{Gameplay Functions}
+\begin{itemize}
+    \item \textbf{Character Generation:} The game will randomly generate characters that pop up on the screen, ensuring a diverse and engaging gameplay experience. The variety in character appearance and frequency will keep players on their toes.
+    \item \textbf{Hit Detection:} To enhance player interaction, the game will capture hits on characters through mouse or touch input. Immediate feedback will be provided via sound effects and visual cues, such as blood splatter effects, reinforcing the game's theme.
+    \item \textbf{Scoring System:} The scoring system will award points for successful hits, with bonuses for speed and accuracy. This system will track the total score throughout the game and display it at the end of each session, encouraging competitive play.
+\end{itemize}
+
+\subsection{User Interaction Functions}
+\begin{itemize}
+    \item \textbf{Player Input:} Players will be able to start, pause, or restart the game using keyboard or mouse inputs. Additionally, they will have the opportunity to input their name for the high score leaderboard before starting the game, fostering a sense of achievement.
+    \item \textbf{Feedback Mechanisms:} To enhance the gaming experience, auditory and visual feedback will be provided for both successful hits and misses. Messages will be displayed after each round, offering encouragement or constructive feedback, such as “Great Job!” or “Try Again!”
+\end{itemize}
+
+\subsection{Data Management Functions}
+\begin{itemize}
+    \item \textbf{Score Tracking:} The game will save scores to a local leaderboard or database, allowing for the tracking of player performance. After completing a game session, users will have the option to view high scores, adding a competitive element.
+    \item \textbf{User Profile Management:} To personalize gameplay, the game will store player names and high scores associated with their profiles. This feature will facilitate continuity for players during future sessions.
+\end{itemize}
+
+\subsection{Quality Assurance Functions}
+\begin{itemize}
+    \item \textbf{Error Handling:} To ensure a smooth gaming experience, the game will detect and report any gameplay errors or glitches, such as characters failing to appear. When issues arise, the game will provide instructions or suggestions for resolving them.
+    \item \textbf{Testing Tools:} I will include tools for QA testers to simulate various gameplay scenarios. These tools will facilitate thorough testing, ensuring that all functions operate as intended before release.
+\end{itemize}
+
+\subsection{Performance Tracking Functions}
+\begin{itemize}
+    \item \textbf{Statistics Display:} After each game session, players will be presented with statistics like hit accuracy, total hits, and average reaction time. This data will help players understand their performance and areas for improvement.
+    \item \textbf{Gameplay Analytics:} To continuously enhance the game, I plan to collect data on player interactions. This gameplay analytics will inform future updates and adjustments, creating a more engaging experience.
+\end{itemize}
+
+\subsection{Help and Support Functions}
+\begin{itemize}
+    \item \textbf{Tutorial Mode:} To support new players, I will implement a tutorial mode that introduces gameplay mechanics and controls through guided steps. This mode will ensure that all players feel confident as they start their gaming journey.
+    \item \textbf{Help Section:} Lastly, a help section will be included, providing FAQs and troubleshooting tips for common issues. This resource will enhance user satisfaction and retention by addressing player concerns effectively.
+\end{itemize}
+
+\section{User Characteristics}
+\subsection{User Characteristics}
+The general characteristics of the users of ‘Whack A Prof’ are:
+\begin{itemize}
+    \item \textbf{Educational Level:} Players can range from high school students to college graduates and beyond. The game’s simplicity makes it accessible to a wide audience, regardless of their formal education.
+    \item \textbf{Experience:} 
+    \begin{itemize}
+        \item \textbf{Casual Gamers:} Gamers who enjoy playing simple, quick games for relaxation or entertainment.
+        \item \textbf{Experienced Gamers:} Gamers who have extensive experience with various types of games, including both casual and complex games.
+    \end{itemize}
+    \item \textbf{Technical Expertise:} 
+    \begin{itemize}
+        \item \textbf{Basic computer skills:} Players will have computer skills, such as using a mouse or keyboard, navigating the internet, and installing the software.
+        \item \textbf{Intermediate skills:} Some players might have intermediate technical skills, including familiarity with different gaming platforms and troubleshooting minor technical issues.
+        \item \textbf{Advanced skills:} A subset of players might have technical expertise, such as knowledge of game development, programming, or modding games.
+    \end{itemize}
+\end{itemize}
+
+\section{Constraints}
+\subsection{Constraints}
+\begin{itemize}
+    \item \textbf{Regulatory policies:}
+    \begin{itemize}
+        \item \textbf{Intellectual property rights:} ‘Whack A Prof’ avoids using copyrighted material without permission. This includes music, images, and characters.
+        \item \textbf{Violence and ethical content:} ‘Whack A Prof’ ensures the depiction of violence is appropriate for the game’s context and avoids promoting real-world violence or stereotypes.
+        \item \textbf{Fair play and cheating measures:} ‘Whack A Prof’ implements measures to prevent cheating and ensure fair play.
+    \end{itemize}
+    \item \textbf{Hardware Limitations:}
+    \begin{itemize}
+        \item (TBD) Game has not been designed, but examples of hardware limitations can include memory, operating system (compatibility with Windows 10/11), development tools.
+    \end{itemize}
+    \item \textbf{Interfaces to other applications:}
+    \begin{itemize}
+        \item (TBD) We can allow players to share their achievements, scores, and game progress on social media.
+        \item Ensure your game can run on multiple platforms (PC, consoles, mobile devices) by using cross-platform development tools like Unity or Unreal Engine.
+    \end{itemize}
+    \item \textbf{Parallel operation:}
+    \begin{itemize}
+        \item (TBD) Does the game implement task parallelism (dividing a task into smaller sub-tasks that can be processed in parallel).
+    \end{itemize}
+    \item \textbf{Audit functions:}
+    \begin{itemize}
+        \item (TBD) Automated testing: does ‘Whack A Prof’ implement automated testing tools to continuously monitor and audit the game’s functionality.
+    \end{itemize}
+    \item \textbf{Control functions:}
+    \begin{itemize}
+        \item (TBD) Input devices: ‘Whack A Prof’ supports various devices such as keyboards, mice, and touchscreens.
+        \item Control mapping: arrow up button means go up.
+    \end{itemize}
+    \item \textbf{Higher-order language requirements:}
+    \begin{itemize}
+        \item Abstraction and modularity: ‘Whack A Prof’ is written in JavaScript, which offers high levels of abstraction, allowing developers to write more modular and maintainable code.
+    \end{itemize}
+    \item \textbf{Signal handshake protocols:}
+    \begin{itemize}
+        \item (TBD) Does ‘Whack A Prof’ implement security for multiplayer interactions and data exchanges? This involves a handshake process where the client and server exchange keys and authenticate each other before data is transmitted (e.g., TLS, SSS, etc.).
+    \end{itemize}
+    \item \textbf{Reliability requirements:}
+    \begin{itemize}
+        \item Testing and quality assurance: ‘Whack A Prof’ is put through testing, including unit tests, integration tests, and user acceptance tests, to ensure the game functions as expected.
+        \item User feedback and bug reporting: provides easy-to-use mechanisms for players to report bugs and provide feedback.
+    \end{itemize}
+    \item \textbf{Criticality of the application:}
+    \begin{itemize}
+        \item User experience: the game provides a seamless and enjoyable experience.
+    \end{itemize}
+    \item \textbf{Safety and security considerations:}
+    \begin{itemize}
+        \item Access controls: ‘Whack A Prof’ uses strict access controls to limit who can access different parts of the game and its data. To ensure only authorized persons can perform certain actions
+        \item Secure coding practices: ‘Whack A Prof’ follow secure coding practices to minimize vulnerabilities in the game’s code. This include input validation,and proper error handling.
+
+    \end{itemize}
+    
+\end{itemize}
+
+\section{Assumptions and Dependencies}
+\subsection{Assumptions and Dependencies}
+
+\begin{itemize}
+    \item \textbf{Assumption:} The game will be on a web server that supports modern browsers for example (Chrome, Firefox, Safari) with JavaScript enabled.
+    \item \textbf{Dependency:} If a user tries to play the game in an outdated browser or one that does not support JavaScript the game might not work as expected. In such a case, changes to the requirements would be needed, such as checking browser compatibility.
+    
+    \item \textbf{Assumption:} The game will be deployed on a website that has a stable internet connection and as well can handle multiple users accessing the website at the same time.
+    \item \textbf{Dependency:} If the website hosting the game experiences downtime or poor performance due to limited bandwidth, the requirements might need to change to include performance optimization or the game might be able to be played offline.
+
+    \item \textbf{Assumption:} The game will require users to interact via mouse clicks.
+    \item \textbf{Dependency:} If the game needs to support additional and or more input methods, such as keyboard control, game controllers or touch screen, the SRS outline would need to change to accommodate the new input methods and there would need to be necessary changes in game mechanics.
+\end{itemize}
+
+\section{Apportioning of Requirements or Optional Requirements}
+\subsection{Apportioning of Requirements or Optional Requirements}
+
+\begin{itemize}
+    \item \textbf{Multiplayer Mode:} The initial release of the game will only support single-player mode. A future version of the game may include a multiplayer mode, allowing multiple users to compete simultaneously.
+    \item \textbf{Delay:} Multiplayer support will be postponed to the final version.
+
+    \item \textbf{Additional Characters and Themes:} The initial game will feature a single theme with a limited number of characters (ie, professors, board of trustees). Future versions may introduce additional professors or in game background themes, such as new character designs, animations.
+    \item \textbf{Delay:} Additional characters and themes will/may be part of Version 3.0.
+
+    \item \textbf{Mobile App Version:} The initial release of the game will be designed for web browsers, while a future version may include a mobile app version for Android and/or iOS devices.
+    \item \textbf{Delay:} The mobile app version will be postponed for a potential future release.
+\end{itemize}
+
+
+\end{document}

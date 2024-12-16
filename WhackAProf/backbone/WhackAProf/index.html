@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack a Prof</title>
+   <<link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+        /*elements like mouse*/
+       
+        
+           
+            
+            #cursor {
+            position: absolute;
+            pointer-events: none;
+            transition: transform 0.1s ease;
+            z-index: 9999;
+            
+            }
+        @keyframes hammerSwing {
+      0% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(90deg); /* Swing left */
+      }
+      100% {
+        transform: rotate(-45deg); /* Swing right */
+      }
+        }
+        
+
+        /*Main Menu*/
+        
+        body {
+            
+            background-image: url(graphicElements/MainGameArea.png) ;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+
+            
+            font-family: 'Pixelify Sans', sans-serif;
+
+             cursor: none;
+    
+        }
+
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            
+        }
+
+        .menuTitle {
+            width: 300px ;
+            height: 100px;
+            border: 5px solid black;
+            box-shadow: 10px 10px 10px black;
+            background-color: white;
+            margin-bottom: -20px;
+            font-size: 60pt;
+            text-align: center;
+        }
+
+        .menuButtons {
+            width: 600px;
+            height: 400px;
+            text-align: center;
+            border: 5px solid black;
+            box-shadow: 10px 10px 10px black;
+            background-color: white;
+            image-rendering: pixelated;
+        }
+
+
+        h1 {    
+            font-size: 100pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: black;
+            margin-top: 0%;
+        }
+
+
+        .button {
+            display: inline-flex;
+            padding: 15px 30px;
+            margin: 25px;
+            font-size: 50pt;
+            font-family: 'Pixelify Sans', sans-serif;
+            font-weight: bold;
+            color: #333;
+            background-color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .button:hover {
+            background-color: #FF6F61;
+            color: #ffffff;
+        }
+
+
+        /*Game Page*/
+        .mole  {
+            width: 100px;
+            height: 100px;
+            position: static;
+            margin-left: auto;
+            margin-right: auto;
+            display: none;
+
+            
+            
+        }
+        #mole{
+            transition: transform 0.3s ;
+        }
+
+        @keyframes flatten {
+      0% {
+        transform: scaleY(1); /* Original size */
+      }
+      50% {
+        transform: scaleY(0.2); /* Squashed/flattened vertically */
+      }
+      
+      
+    }
+
+    .flatten {
+        animation: flatten 0.5s ;
+    }
+
+    
+    .moleText{
+        margin-top: 5pt;
+        color: black;
+        text-align: center;
+    }
+
+    /* Style for the blood circle */
+.blood-circle {
+    position: absolute;
+    width: 50px; /* Size of the blood circle */
+    height: 50px; /* Size of the blood circle */
+    background-color: red; /* Blood color */
+    border-radius: 50%; /* Make it round */
+    opacity: 0; /* Start invisible */
+    animation: bloodEffect 1.5s forwards; /* Animation to make it grow and fade out */
+}
+
+/* Animation for the blood circle effect */
+@keyframes bloodEffect {
+    0% {
+        transform: scale(0); /* Start small */
+        opacity: 1; /* Fade in */
+    }
+    50% {
+        transform: scale(1.5); /* Grow the circle */
+    }
+    100% {
+        opacity: 0; /* Fade out */
+        transform: scale(0); /* Shrink back to nothing */
+    }
+}
+
+
+        
+
+        
+
+        .hole {
+            width: 150px;
+            height: 150px;
+            background-color: lightgray;
+            border: .5px solid black;
+            display: inline-block;
+            position: relative;
+        }
+
+
+        .gameContainer {
+            display: none;
+            flex-direction: column;
+            padding-top: 10px;
+            
+        }
+
+        .moleContainerBackground {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+        }
+
+
+        .moleContainer {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 20px;
+            gap: 20px;
+            width: 600px;
+            height: 560px;
+            text-align: center;
+            background-color: #89CFF0;
+            border: .5px solid black;
+            border-radius: 15PX;
+            justify-items: center;
+            align-items: center;
+        }
+
+
+        .controlContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: flex-start;
+            padding-top: 20px;
+        }
+
+
+        .gameButton, .back-to-menu-button, .back-to-setting-button {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #c9a0dc;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin: 5px;
+        }
+
+
+        .gameButton:hover, .back-to-menu-button:hover, .back-to-setting-button:hover {
+            background-color: #a07ab5;
+            transform: scale(1.05);
+        }
+
+
+        .score-timer {
+            position: absolute;
+            left: 20px;
+            top: 80px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #4b0082;
+            text-align: left;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #d9b3ff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .score-timer div {
+            margin-bottom: 8px;
+        }
+
+
+        /* Game Over Message Styling */
+        .game-over-message {
+            display: none;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffffff;
+            background: linear-gradient(135deg, #b22222, #e67373);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 10px;
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+            width: 60%;
+            max-width: 400px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+
+        /* Control Buttons Container */
+        .control-buttons {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+        
+
+
+        /*Settings*/
+        .settingContainer {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+
+            
+        }
+        .SettingTitle {
+            width: 400px ;
+            height: 100px;
+            border: 5px solid black;
+            box-shadow: 10px 10px 10px black;
+            background-color: white;
+            margin-bottom: -20px;
+            font-size: 60pt;
+            text-align: center;
+        }
+        .SettingOptions {
+            width: 600px;
+            height: 400px;
+            text-align: center;
+            border: 5px solid black;
+            box-shadow: 10px 10px 10px black;
+            background-color: white;
+            image-rendering: pixelated;
+        }
+        .backgroundMusicVolume, .hitSoundVolume {
+            font-size: 25pt;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 1cm;
+        }
+        
+        
+       
+        .level{
+            width: 310px;
+            position: relative;
+            left: 39px;
+        }
+        .TurnOnButton , .TurnOffButton {
+            position: flex;
+            width: 200px;
+            height: 100px;
+            padding: 11px 17px;
+            font-weight: bold;
+            font-size: 25pt;
+            color: #333;
+            background-color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .backButton {
+            position: relative;
+            bottom: 445px;
+            right: 852px;
+            padding: 11px 17px;
+            font-weight: bold;
+            color: #333;
+            background-color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .backButton:hover, .TurnOnButton:hover , .TurnOffButton:hover{
+            background-color: #FF6F61;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" src="soundElements/BackgroundMusic.mp3" loop></audio>
+     <img id="cursor" src="graphicElements/Mallet.png" alt="hammerSwing">
+
+   
+   
+    <!--Main Menu-->
+    
+    <div class="container" id = "menuContainer">
+        <h1 id = "Title"> Whack a Prof</h1>
+    
+        <div>
+            <h1 class="menuTitle">MENU</h1>
+        </div>
+        <div class="menuButtons">
+            <button class="button">Start Game</button>
+            <button class="button">Settings</button>
+        </div>
+    </div>
+
+    <!--Settings Page -->
+    <div class="settingContainer" id="settingContainer">
+            <div>
+                <h1 class="SettingTitle">Settings</h1>
+            </div >
+
+        <div class="SettingOptions">
+                <div class="backgroundMusicVolume" id="backgroundMusicVolume">BackgroundMusicSoundEffect
+                    <button class="TurnOnButton" id="TurnOnBgMusic">On</button>
+                    <button class="TurnOffButton" id="TurnOffBgMusic">Off</button>
+                    
+                </div>
+            <div class="hitSoundVolume" id="hitSoundVolume">Mallet Sound Effect Volume
+                    <button class="TurnOnButton" id="TurnOnHitSound">On</button>
+                    <button class="TurnOffButton" id="TurnOffHitSound">Off</button>
+                
+                
+            </div>
+
+        </div>
+        
+        
+        <button class="button" id="back-to-menu-Button">Back To Menu</button>
+        
+    </div>
+    
+
+
+    <!--Game Container-->
+    <div class = "gameContainer" id = "gameContainer">
+        
+        <!-- Controls -->
+        <div class = "controlContainer" id = "controlContainer">
+            <!-- Control Buttons Outside the Box -->
+            <div class="control-buttons">
+                <button class="gameButton" onclick="toggleGame()" id="start-button">Start</gameButton>
+                <button class="gameButton" onclick="pauseGame()" id="pause-button" style="display:none;">Pause</gameButton>
+                <button class="gameButton" onclick="resetGame()" id="restart-button" style="display:none;">Restart</gameButton>
+            </div>
+           
+            <!-- Timer and Score Display -->
+            <div class="score-timer">
+                <div>Time Left: <span id="time-remaining">30</span> s</div>
+                <div>Score: <span id="score">0</span></div>
+                <div>High Score: <span id="high-score">0</span></div>
+            </div>
+
+            
+                
+            <!-- Centered Game Over Message with Score Display -->
+            <div class="game-over-message" id="game-over-message">
+                Game Over! <br> Your Score: <span id="final-score"></span> <br>
+            </div>
+        </div>
+
+
+        <div class="moleContainerBackground" >
+            <audio id="hitSound" src="soundElements/ImpactSound.wav"></audio>
+            <div class ="moleContainer" id = "moleContainer">
+                <div class="hole"><img class="mole" src="" alt="flatten" data-role="" ><span class="moleText"></span></img></div>
+                <div class="hole"><img class="mole" src=""  alt="flatten" data-role="" ><span class="moleText"></span></img></div>
+                <div class="hole"><img class="mole" src="" alt="flatten" data-role="" ><span class="moleText"></span></img></div>
+                <div class="hole"><img class="mole" src="" alt="flatten" data-role="" ><span class="moleText"></span></img></div>
+                <div class="hole"><img class="mole" src="" alt="flatten" data-role="" ><span class="moleText"></span></img></div>
+                <div class="hole"><img class="mole" src="" alt="flatten" data-role="" ><span class="moleText"></span></img></div>
+                <div class="hole"><img class="mole" src="" alt="flatten" data-role="" ><span class="moleText"></span></img></div>
+                <div class="hole"><img class="mole" src="" alt="flatten" data-role="" ><span class="moleText"></span></img></div>
+                <div class="hole"><img class="mole" src="" alt="flatten" data-role="" ><span class="moleText"></span></img></div>    
+            </div>
+        </div>
+        <div class="back-to-Button">
+            <button class="back-to-menu-button" id="backToMenuButton">Back To Menu</button>
+            <button class="back-to-setting-button" id="gameplaySetting">Settings</button>
+
+        </div>
+
+    </div>
+    
+
+    <script src="index.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

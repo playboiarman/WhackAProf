@@ -1,0 +1,65 @@
+User characteristics 
+The general characteristics of the users of ‘Whack A Prof’ 
+
+Educational Level:
+ Players can range from high school students to college graduates and beyond. The game’s simplicity makes it accessible to a wide audience, regardless of their formal education.
+
+Experience: 
+Casual Gamers: Gamers who enjoy playing simple, quick games for relaxation or entertainment
+Experienced Gamers: Gamers who have extensive experience with various types of games, including both casual and complex games.
+
+Technical Expertise:
+Basic computer skills: players will have computer skills, such as using a mouse or keyboard, navigating the internet, and installing the software.
+Intermediate skills: some players might have intermediate technical skills, including familiarity with different gaming platforms and troubleshooting minor technical issues.
+Advanced skills: a subset of players might have technical expertise, such as knowledge of game development, programming, or modding game
+
+ Modding: Video game modding (short for "modification") is the process of alteration by players or fans of one or more aspects of a video game,[1] such as how it looks or behaves, and is a sub-discipline of general modding. 
+
+Constraints
+ Regulatory policies:
+Intellectual property rights: ‘Whack A Prof’ avoids using copyrighted material without permission. These include music, images, and characters.
+Violence and ethical content: ‘Whack A Prof’ ensures the depiction of violence is appropriate for the game’s context and avoids promoting real world violence or stereotypes.
+Fair play and cheating measures: ‘Whack A Prof’ implements measures to prevent cheating and ensures fair play.
+
+Hardware Limitations:
+(TBD) Game has not been designed but examples of hardware limitation can include memory, operating system (compatibility with windows 10/11), development tools.
+
+Interfaces to other applications:
+(TBD) We can allow players share their achievements, scores, and game progress on social media
+Ensure your game can run on multiple platforms (PC, consoles, mobile devices) by using cross-platform development tools like Unity or Unreal Engine.
+
+Parallel operation:
+(TBD) Does the game implement task parallelism (dividing a task into smaller sub-tasks that can be processed in parallel)
+
+Audit functions:
+(TBD) Automated testing: does ‘Whack A Prof’ implements automated testing tools to continuously monitor and audit the game’s functionality
+
+Control functions:
+(TBD) Input devices: ‘Whack A Prof’ supports various devices such as keyboards, mice, and touchscreen.
+Control mapping: arrow up button means go up.
+
+Higher-order language requirements:
+Abstraction and modularity: ‘Whack A Prof’ is written in javascript which offers high levels of abstraction, allowing developers to write more modular and maintainable code.
+
+Signal handshake protocols:
+(TBD) Does ‘Whack a prof’ implement security for multiplayer interactions and data exchanges. This involves a handshake process where the client and server exchange keys and authenticate each other before data is transmitted. E.g. TLS, SSS, e.t.c
+
+Reliability requirements:
+Testing and quality assurance: ‘Whack A Prof’ is put through testing, including unit tests, integration tests, and user acceptance tests, to ensure the game functions as expected.
+
+User feedback and bug reporting: provides easy-to-use mechanisms for players to report bugs and provide feedback.
+
+Criticality of the application:
+
+User experience: the game provides a seamless and enjoyable experience.
+Safety and security considerations:
+
+Access controls: ‘Whack A Prof’ uses strict access controls to limit who can access different parts of the game and its data. To ensure only authorized persons can perform certain actions
+
+Secure coding practices: ‘Whack A Prof’ follow secure coding practices to minimize vulnerabilities in the game’s code. This include input validation,and proper error handling.
+
+
+
+
+
+

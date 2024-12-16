@@ -1,0 +1,14 @@
+meeting notes for 9/26/2024
+
+
+- Telling everyone that they should be caught up on reading the entire SRS document
+- Deciding that we should use .txt format document for all documentations moving forward
+
+- Deciding group members should separately be split up and work on the Introduction and Overall description outline section of SRS when software requirements are given
+
+- Group members that should work on the outline section are as follows :
+ 
+- fujie, john, johan for introduction 
+- shabrina, thiola, julian for overall description 
+
+- Next meeting will discuss on splitting members up on the Specific Requirements Section on the SRS outline

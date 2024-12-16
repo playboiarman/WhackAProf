@@ -1,0 +1,5 @@
+SRS LOG 6 
+11/13 
+
++ Remodified User Class section 
+Purpose for remodification : Added new System Features section into User Class section 

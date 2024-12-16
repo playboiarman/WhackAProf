@@ -1,0 +1,4 @@
+Meeting 11_12_2024
+
++ Discussed what needs to be added to current SRS outline 
++ Need to add newly updated User Class section 

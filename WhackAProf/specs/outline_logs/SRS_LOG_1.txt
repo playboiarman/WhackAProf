@@ -1,0 +1,30 @@
+
+SRS Log changes #1 
+
++Added 
+Leaderboard interface in section 2.2
+Purpose For Addition: Missing interface 
+
++Added 
+Abbreviations in section 1.3 
+
+ESS - An abbreviation for essential requirements that would make it so that the software would not be acceptable unless these requirements are provided in an agreed manner 
+COND - An abbreviation for conditional requirements that would enhance the software,
+OPT - An abbreviation for optional, can be used for optional but not necessary requirements 
+Purpose For Addition: Entire section is optional 
+
++Added
+High Scores in 3.1 
+Purpose For Addition: Other team has a different idea on high score management.
+
++Modified 
+TBD/OPT for 3.4 User Profile Management 
+Purpose For Addition: Backbone might have a different idea on user profile management. 
+
++Added New Sections (FROM SRS OUTLINE)
+
+SRS Sections 5.3 (Specific Requirements)
+5.3.1 (External Interfaces)
+5.3.2 (Functions)
+5.3.3 (Performance Requirements) 
+

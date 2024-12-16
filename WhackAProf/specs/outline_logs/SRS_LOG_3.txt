@@ -1,0 +1,6 @@
+SRS LOG CHANGE #3 (10/28)
+
+- Removed requirements pertaining to high score and leaderboard tracking 
+  Purpose for removal : Since backbone team has specified that this requirement is not suitable for the software instead updated the requirement to track scores during gameplay session and user will be able to view their score once a game session has ended. 
+
++ Added Section - Software System Attributes 

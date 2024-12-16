@@ -1,0 +1,10 @@
+Meeting on 10_17_2024
+
+Went over SRS outline formatting and what needs to be reformatted 
+
+The following issues are present in the outline that needs to be addressed :
+	Scope is repetitive
+	Benefits and Objectives should be more specific 
+	Definitions need to be boldened 
+
+Discussed who needs to format it
